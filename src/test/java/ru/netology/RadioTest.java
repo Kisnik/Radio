@@ -72,7 +72,7 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    //переключение на следующую станцию без перехода от последней к первой
+    //переключение на предыдущую станцию без перехода от первой к последней
     @Test
     public void prevStation() {
         Radio radio = new Radio();
@@ -83,7 +83,7 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
-    //переключение на следующую станцию с переходом от последней к первой
+    //переключение на предыдущую станцию с переходом от первой к последней
     @Test
     public void prevStationMin() {
         Radio radio = new Radio();
