@@ -10,11 +10,11 @@ public class Radio {
 
     public void setStation(int station) {
         if (station > 9) {
-            station = 0;
+            this.station = 0;
             return;
         }
         if (station < 0) {
-            station = 9;
+            this.station = 9;
             return;
         }
         this.station = station;
