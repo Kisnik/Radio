@@ -1,28 +1,24 @@
 package ru.netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int station;
     private int volume;
-    private int numOfStations;
+    private int numOfStations = 10;
 
-    public Radio() {
-        numOfStations = 10;
 
-    }
-
-    public Radio(int numOfStations){
+    public Radio(int numOfStations) {
 
         this.numOfStations = numOfStations;
     }
 
-    public int getNumOfStations() {
-        return numOfStations;
-    }
-
-    public void setNumOfStations(int numOfStations) {
-        this.numOfStations = numOfStations;
-    }
-
+    /*
     public int getStation() {
         return station;
     }
@@ -51,25 +47,39 @@ public class Radio {
             return;
         }
         this.volume = volume;
-    }
+    }*/
 
     //следующая станция
     public void nextStation() {
-        setStation(this.station + 1);
+        if (this.station == this.numOfStations) {
+            setStation(0);
+        } else {
+            setStation(this.station + 1);
+        }
     }
 
     //предыдущая станция
     public void prevStation() {
-        setStation(this.station - 1);
+        if (this.station == 0) {
+            setStation(this.numOfStations);
+        } else {
+            setStation(this.station - 1);
+        }
     }
 
     //увеличение громкости
     public void incVolume() {
+        if (this.volume == 100) {
+            return;
+        }
         setVolume(this.volume + 1);
     }
 
     //уменьшение громкости
     public void decVolume() {
+        if (this.volume == 0) {
+            return;
+        }
         setVolume(this.volume - 1);
     }
 
